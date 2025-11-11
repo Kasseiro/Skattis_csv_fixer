@@ -39,7 +39,7 @@ else:
 # Convert date columns if present
 for col in ["Date", "Transfer Date", "Transfer Reference Date"]:
     if col in df.columns:
-        df[col] = pd.to_datetime(df[col], format="%d.%m.%Y", errors="coerce").dt.strftime("%Y-%m-%d")
+        df[col] = pd.to_datetime(df[col], format="%d-%m-%Y", errors="coerce").dt.strftime("%Y-%m-%d")
 
 # Save cleaned file
 df.to_csv(output_file, sep=";", index=False, encoding="utf-8")
